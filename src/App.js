@@ -27,6 +27,30 @@ class App extends React.Component{
     })
   }
 
+  addPainting = (info) => {
+    // console.log(info)
+
+    const newPainting = {
+      // id: this.state.paintings[this.state.paintings.length-1].id + 1, //BONUS to get rid of warning
+      image: info.image,
+      title: info.title,
+      artist: {
+        name: info.artist
+      },
+      date: info.date,
+      dimensions: {
+        width: info.width,
+        height: info.height
+      },
+      votes: 0 //add initial votes for a painting
+    } // to match painting data format
+
+    this.setState({
+      paintings: [...this.state.paintings, newPainting], //.push is not used here because it returns length of an array after adding new element
+      formView: !this.state.formView //to display paintings after adding a new painting info
+    })
+  }
+
   render(){
   return (
     <div>
@@ -41,7 +65,9 @@ class App extends React.Component{
 
       <button onClick={this.toggleForm}>Show/Hide new painting form</button>
 
-      {this.state.formView ? <PaintingForm/> : <PaintingsList paintings={this.state.paintings} />}
+      {this.state.formView 
+      ? <PaintingForm addPainting={this.addPainting} /> 
+      : <PaintingsList paintings={this.state.paintings} />}
 
     </div>
   )
