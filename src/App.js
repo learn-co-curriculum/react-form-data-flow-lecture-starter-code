@@ -17,12 +17,8 @@ class App extends React.Component{
     }
   }
 
-  // state = { color: "red"} //state outside constructor
-
   changeColor = () => {
-    this.setState({color: "yellow"}, () => console.log(this.state.color)) //setState is async
-
-    console.log(this.state.color)
+    this.setState({color: "yellow"})
   }
 
   toggleForm = () => {
@@ -42,9 +38,6 @@ class App extends React.Component{
         description="an app we made"
         changeColor={this.changeColor}
       />
-
-      {/* <button onClick={this.changeColor}>Change color</button>
-      <button onClick={() => this.changeColor()}>Change color</button> */}
 
       <button onClick={this.toggleForm}>Show/Hide new painting form</button>
 

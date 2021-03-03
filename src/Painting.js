@@ -9,10 +9,6 @@ class Painting extends React.Component{
     }
   }
 
-  // state = {
-  //   votes: this.props.painting.votes
-  // }
-
   addVote = () => {
     this.setState({
       votes: this.state.votes + 1
@@ -30,11 +26,7 @@ class Painting extends React.Component{
         <p>
           Dimensions: {this.props.painting.dimensions.width} in. x {this.props.painting.dimensions.height} in.
         </p>
-        
-        <span>Votes: {this.state.votes} </span>
-        <button onClick={this.addVote}>Add Vote</button>
 
-        {/* style
         <div class="ui labeled button" tabindex="0">
           <div class="ui red button" onClick={this.addVote}>
             <i class="heart icon"></i> Add Vote
@@ -42,7 +34,7 @@ class Painting extends React.Component{
           <a class="ui basic red left pointing label">
             {this.state.votes}
           </a>
-        </div> */}
+        </div>
       </div>
         
     );
